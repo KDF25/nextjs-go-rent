@@ -6,7 +6,7 @@ import {
   faLinkedin,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
-import { paths } from "@shared/config";
+import { PATHS } from "@shared/config";
 
 export const FooterLinksData: IFooterLink[] = [
   {
@@ -61,15 +61,15 @@ export const FooterSocialLinksData: IFooterSocialLink[] = [
 
 export const FooterBottomLinksData: IFooterBottomLink[] = [
   {
-    href: paths.privacy,
+    href: PATHS.PRIVACY,
     title: "Privacy Policy",
   },
   {
-    href: paths.terms,
+    href: PATHS.TERMS,
     title: "Terms of Service",
   },
   {
-    href: paths.cookies,
+    href: PATHS.COOKIES,
     title: "Cookie Policy",
   },
 ];

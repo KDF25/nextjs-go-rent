@@ -4,7 +4,7 @@ import {
   FooterSocialLinksData,
 } from "@entities/landing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { paths } from "@shared/config";
+import { PATHS } from "@shared/config";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -15,7 +15,7 @@ export const FooterSection: FC = () => {
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4">
             <Link
-              href={paths.main}
+              href={PATHS.MAIN}
               className="text-xl font-bold"
               scroll={false}
             >

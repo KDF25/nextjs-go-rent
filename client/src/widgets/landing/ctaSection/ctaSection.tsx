@@ -1,6 +1,6 @@
 "use client";
 
-import { paths } from "@shared/config";
+import { PATHS } from "@shared/config";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,7 +43,7 @@ export const CtaSection: FC = () => {
                 Search
               </button>
               <Link
-                href={paths.signin}
+                href={PATHS.SIGNIN}
                 className="inline-block px-6 py-3 font-semibold text-white rounded-lg bg-secondary-500 hover:bg-secondary-600"
                 scroll={false}
               >

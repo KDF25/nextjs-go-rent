@@ -1,5 +1,5 @@
 import { IFeaturesCard } from "../types";
-import { paths } from "@shared/config";
+import { PATHS } from "@shared/config";
 
 export const FeaturesCardsData: IFeaturesCard[] = [
   {
@@ -8,7 +8,7 @@ export const FeaturesCardsData: IFeaturesCard[] = [
     description:
       "Discover the best rental options with user reviews and ratings.",
     linkText: "Explore",
-    linkHref: paths.explore,
+    linkHref: PATHS.EXPLORE,
   },
   {
     imageSrc: "/landing-search2.png",
@@ -16,7 +16,7 @@ export const FeaturesCardsData: IFeaturesCard[] = [
     description:
       "Get access to user reviews and ratings for a better understanding of rental options.",
     linkText: "Search",
-    linkHref: paths.search,
+    linkHref: PATHS.SEARCH,
   },
   {
     imageSrc: "/landing-search3.png",
@@ -24,6 +24,6 @@ export const FeaturesCardsData: IFeaturesCard[] = [
     description:
       "Find trustworthy and verified rental listings to ensure a hassle-free experience.",
     linkText: "Discover",
-    linkHref: paths.discover,
+    linkHref: PATHS.DISCOVER,
   },
 ];
