@@ -1,7 +1,10 @@
-import express from "express";
-import dotenv from "dotenv";
+import { ROLES } from "@constants";
+import { authMiddleware } from "@middlewares";
+import { TENANT_ROUTES, tenantRouter } from "@modules/tenant";
 import bodyParser from "body-parser";
 import cors from "cors";
+import dotenv from "dotenv";
+import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
 
@@ -16,8 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.send("Hello World!");
+    res.send("SERVER IS STARTED");
 });
+
+app.use(TENANT_ROUTES.BASE, authMiddleware([ROLES.TENANT]), tenantRouter);
 
 const port = process.env.PORT || 3002;
 
