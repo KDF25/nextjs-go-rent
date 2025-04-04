@@ -19,8 +19,7 @@ import { signOut } from "aws-amplify/auth";
 import { Bell, MessageCircle, Plus, Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import { FC } from "react";
 
 export const Navbar: FC = () => {
@@ -111,10 +110,10 @@ export const Navbar: FC = () => {
                     <AvatarFallback className="bg-primary-600">
                       {authUser?.userRole?.[0].toUpperCase()}
                     </AvatarFallback>
-                    <p className="hidden text-primary-200 md:block">
-                      {authUser?.userInfo?.name}
-                    </p>
                   </Avatar>
+                  <p className="hidden truncate text-primary-200 md:block w-[50px]">
+                    {authUser?.userInfo?.name}
+                  </p>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="bg-white text-primary-700">
                   <DropdownMenuItem
@@ -137,7 +136,7 @@ export const Navbar: FC = () => {
                       router.push(
                         authUser?.userRole === ROLES.MANAGER
                           ? PATHS.MANAGERS_SETTINGS
-                          : PATHS.TENANTS_FAVORITES,
+                          : PATHS.TENANTS_SETTINGS,
                         // { scroll: false }
                       )
                     }
