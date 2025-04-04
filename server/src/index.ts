@@ -1,5 +1,6 @@
 import { ROLES } from "@constants";
 import { authMiddleware } from "@middlewares";
+import { MANAGER_ROUTES, managerRouter } from "@modules/manager";
 import { TENANT_ROUTES, tenantRouter } from "@modules/tenant";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(TENANT_ROUTES.BASE, authMiddleware([ROLES.TENANT]), tenantRouter);
+app.use(MANAGER_ROUTES.BASE, authMiddleware([ROLES.MANAGER]), managerRouter);
 
 const port = process.env.PORT || 3002;
 
