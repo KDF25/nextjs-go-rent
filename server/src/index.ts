@@ -1,5 +1,6 @@
 import { ROLES } from "@constants";
 import { authMiddleware } from "@middlewares";
+import { APPLICATION_ROUTES, applicationRouter } from "@modules/application";
 import { LEASE_ROUTES, leaseRouter } from "@modules/lease";
 import { MANAGER_ROUTES, managerRouter } from "@modules/manager";
 import { PROPERTY_ROUTES, propertyRouter } from "@modules/property";
@@ -26,11 +27,12 @@ app.get("/", (req, res) => {
 });
 
 app.use(PROPERTY_ROUTES.BASE, propertyRouter);
+app.use(APPLICATION_ROUTES.BASE, applicationRouter);
 app.use(LEASE_ROUTES.BASE, authMiddleware([ROLES.TENANT, ROLES.MANAGER]), leaseRouter);
 app.use(TENANT_ROUTES.BASE, authMiddleware([ROLES.TENANT]), tenantRouter);
 app.use(MANAGER_ROUTES.BASE, authMiddleware([ROLES.MANAGER]), managerRouter);
 
-const port = process.env.PORT || 3002;
+const port = Number(process.env.PORT) || 3002;
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
