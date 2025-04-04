@@ -1,5 +1,5 @@
 export enum TENANT_ROUTES {
-    BASE = "/tenant",
+    BASE = "/tenants",
     GET_TENANT = "/:cognitoId",
     UPDATE_TENANT = "/:cognitoId",
     CREATE_TENANT = "/",

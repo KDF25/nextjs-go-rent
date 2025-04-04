@@ -1,5 +1,5 @@
 export enum MANAGER_ROUTES {
-    BASE = "/manager",
+    BASE = "/managers",
     GET_MANAGER = "/:cognitoId",
     UPDATE_MANAGER = "/:cognitoId",
     GET_PROPERTIES = "/:cognitoId/properties",
