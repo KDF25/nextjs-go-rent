@@ -1,11 +1,11 @@
 import express from "express";
+import { authMiddleware } from "../../middlewares/auth";
+import { ROLES } from "./../../constants/roles";
 import {
-  createApplication,
-  listApplications,
-  updateApplicationStatus,
+    createApplication,
+    listApplications,
+    updateApplicationStatus,
 } from "./application.controller";
-import { ROLES } from "@constants";
-import { authMiddleware } from "@middlewares";
 import { APPLICATION_ROUTES } from "./application.routes";
 
 const router = express.Router();

@@ -1,6 +1,6 @@
-import { ROLES } from "@constants";
 import { PrismaClient } from "@prisma/client";
 import { Request, Response } from "express";
+import { ROLES } from "./../../constants/roles";
 
 const prisma = new PrismaClient();
 

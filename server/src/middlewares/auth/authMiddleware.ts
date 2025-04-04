@@ -1,6 +1,6 @@
-import { ROLES } from "@constants";
 import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
+import { ROLES } from "../../constants/roles";
 
 interface  DecodedToken extends JwtPayload {
     sub: string;

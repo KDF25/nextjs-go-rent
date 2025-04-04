@@ -1,16 +1,16 @@
-import { ROLES } from "@constants";
-import { authMiddleware } from "@middlewares";
-import { APPLICATION_ROUTES, applicationRouter } from "@modules/application";
-import { LEASE_ROUTES, leaseRouter } from "@modules/lease";
-import { MANAGER_ROUTES, managerRouter } from "@modules/manager";
-import { PROPERTY_ROUTES, propertyRouter } from "@modules/property";
-import { TENANT_ROUTES, tenantRouter } from "@modules/tenant";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import helmet from "helmet";
 import morgan from "morgan";
+import { ROLES } from "./constants/roles";
+import { authMiddleware } from "./middlewares/auth";
+import { APPLICATION_ROUTES, applicationRouter } from "./modules/application";
+import { LEASE_ROUTES, leaseRouter } from "./modules/lease";
+import { MANAGER_ROUTES, managerRouter } from "./modules/manager";
+import { PROPERTY_ROUTES, propertyRouter } from "./modules/property";
+import { TENANT_ROUTES, tenantRouter } from "./modules/tenant";
 
 dotenv.config();
 const app = express();

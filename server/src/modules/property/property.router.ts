@@ -1,6 +1,5 @@
 
-import { ROLES } from "@constants";
-import { authMiddleware } from "@middlewares";
+import { authMiddleware } from "../../middlewares/auth";
 import express from "express";
 import multer from "multer";
 import {
@@ -9,6 +8,7 @@ import {
     getProperty,
 } from "./property.controller";
 import { PROPERTY_ROUTES } from "./property.routes";
+import { ROLES } from "../../constants/roles";
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
