@@ -1,5 +1,6 @@
 import { ROLES } from "@constants";
 import { authMiddleware } from "@middlewares";
+import { LEASE_ROUTES, leaseRouter } from "@modules/lease";
 import { MANAGER_ROUTES, managerRouter } from "@modules/manager";
 import { PROPERTY_ROUTES, propertyRouter } from "@modules/property";
 import { TENANT_ROUTES, tenantRouter } from "@modules/tenant";
@@ -25,6 +26,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(PROPERTY_ROUTES.BASE, propertyRouter);
+app.use(LEASE_ROUTES.BASE, authMiddleware([ROLES.TENANT, ROLES.MANAGER]), leaseRouter);
 app.use(TENANT_ROUTES.BASE, authMiddleware([ROLES.TENANT]), tenantRouter);
 app.use(MANAGER_ROUTES.BASE, authMiddleware([ROLES.MANAGER]), managerRouter);
 
