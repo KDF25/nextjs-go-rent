@@ -1,6 +1,7 @@
 import { ROLES } from "@constants";
 import { authMiddleware } from "@middlewares";
 import { MANAGER_ROUTES, managerRouter } from "@modules/manager";
+import { PROPERTY_ROUTES, propertyRouter } from "@modules/property";
 import { TENANT_ROUTES, tenantRouter } from "@modules/tenant";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -23,6 +24,7 @@ app.get("/", (req, res) => {
     res.send("SERVER IS STARTED");
 });
 
+app.use(PROPERTY_ROUTES.BASE, propertyRouter);
 app.use(TENANT_ROUTES.BASE, authMiddleware([ROLES.TENANT]), tenantRouter);
 app.use(MANAGER_ROUTES.BASE, authMiddleware([ROLES.MANAGER]), managerRouter);
 
