@@ -5,7 +5,7 @@ import {
   getCurrentUser,
   JWT,
 } from "aws-amplify/auth";
-import { Manager, Property, ROLES, Tenant, User } from "../types";
+import { Application, Manager, Property, ROLES, Tenant, User } from "../types";
 import { FiltersState } from "@shared/store";
 import { cleanParams } from "@shared/lib";
 
@@ -168,6 +168,27 @@ export const userApi = baseApi.injectEndpoints({
         { type: "Properties", id: "LIST" },
       ],
     }),
+
+    createProperty: build.mutation<Property, FormData>({
+      query: (newProperty) => ({
+        url: `properties`,
+        method: "POST",
+        body: newProperty,
+      }),
+      invalidatesTags: (result) => [
+        { type: "Properties", id: "LIST" },
+        { type: "MANAGERS", id: result?.manager?.id },
+      ],
+    }),
+
+    createApplication: build.mutation<Application, Partial<Application>>({
+      query: (body) => ({
+        url: `applications`,
+        method: "POST",
+        body: body,
+      }),
+      invalidatesTags: ["Applications"],
+    }),
   }),
 });
 
@@ -180,4 +201,6 @@ export const {
   useGetTenantQuery,
   useAddFavoritePropertyMutation,
   useRemoveFavoritePropertyMutation,
+  useCreatePropertyMutation,
+  useCreateApplicationMutation,
 } = userApi;

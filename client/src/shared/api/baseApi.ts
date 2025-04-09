@@ -15,5 +15,11 @@ export const baseApi = createApi({
   }),
   reducerPath: "api",
   endpoints: () => ({}),
-  tagTypes: ["TENANTS", "MANAGERS", "PropertyDetails", "Properties"],
+  tagTypes: [
+    "TENANTS",
+    "MANAGERS",
+    "PropertyDetails",
+    "Properties",
+    "Applications",
+  ],
 });
