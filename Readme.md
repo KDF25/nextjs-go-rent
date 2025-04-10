@@ -7,10 +7,10 @@
 ## 🚀 Tech Stack
 
 ### Frontend
-- **Framework**: [Next.js](https://nextjs.org)  
+- **Framework**: Next.js 
 - **Styling**: Tailwind CSS  
 - **State Management**: Redux Toolkit  
-- **UI Components**: Radix UI + Custom Components  
+- **UI Components**: Shadcn UI + Custom Components  
 
 ### Backend
 - **Framework**: Express.js  
