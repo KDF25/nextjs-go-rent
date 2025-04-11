@@ -5,9 +5,7 @@ import {
   getCurrentUser,
   JWT,
 } from "aws-amplify/auth";
-import { Application, Manager, Property, ROLES, Tenant, User } from "../types";
-import { FiltersState } from "@shared/store";
-import { cleanParams } from "@shared/lib";
+import { Manager, ROLES, Tenant, User } from "../types";
 
 export const createNewUserInDatabase = async (
   user: AuthUser,
@@ -77,130 +75,7 @@ export const userApi = baseApi.injectEndpoints({
         }
       },
     }),
-
-    updateTenantSettings: build.mutation<
-      Tenant,
-      { cognitoId: string } & Partial<Tenant>
-    >({
-      query: ({ cognitoId, ...updatedTenant }) => ({
-        url: `tenants/${cognitoId}`,
-        method: "PUT",
-        body: updatedTenant,
-      }),
-      invalidatesTags: (result) => [{ type: "TENANTS", id: result?.id }],
-    }),
-    updateManagerSettings: build.mutation<
-      Manager,
-      { cognitoId: string } & Partial<Manager>
-    >({
-      query: ({ cognitoId, ...updatedManager }) => ({
-        url: `managers/${cognitoId}`,
-        method: "PUT",
-        body: updatedManager,
-      }),
-      invalidatesTags: (result) => [{ type: "MANAGERS", id: result?.id }],
-    }),
-    getProperty: build.query<Property, number>({
-      query: (id) => `properties/${id}`,
-      providesTags: (result, error, id) => [{ type: "PropertyDetails", id }],
-    }),
-    getProperties: build.query<
-      Property[],
-      Partial<FiltersState> & { favoriteIds?: number[] }
-    >({
-      query: (filters) => {
-        const params = cleanParams({
-          location: filters.location,
-          priceMin: filters.priceRange?.[0],
-          priceMax: filters.priceRange?.[1],
-          beds: filters.beds,
-          baths: filters.baths,
-          propertyType: filters.propertyType,
-          squareFeetMin: filters.squareFeet?.[0],
-          squareFeetMax: filters.squareFeet?.[1],
-          amenities: filters.amenities?.join(","),
-          availableFrom: filters.availableFrom,
-          favoriteIds: filters.favoriteIds?.join(","),
-          latitude: filters.coordinates?.[1],
-          longitude: filters.coordinates?.[0],
-        });
-
-        return { url: "properties", params };
-      },
-      providesTags: (result) =>
-        result
-          ? [
-              ...result.map(({ id }) => ({ type: "Properties" as const, id })),
-              { type: "Properties", id: "LIST" },
-            ]
-          : [{ type: "Properties", id: "LIST" }],
-    }),
-    // tenant related endpoints
-    getTenant: build.query<Tenant, string>({
-      query: (cognitoId) => `tenants/${cognitoId}`,
-      providesTags: (result) => [{ type: "TENANTS", id: result?.id }],
-    }),
-
-    addFavoriteProperty: build.mutation<
-      Tenant,
-      { cognitoId: string; propertyId: number }
-    >({
-      query: ({ cognitoId, propertyId }) => ({
-        url: `tenants/${cognitoId}/favorites/${propertyId}`,
-        method: "POST",
-      }),
-      invalidatesTags: (result) => [
-        { type: "TENANTS", id: result?.id },
-        { type: "Properties", id: "LIST" },
-      ],
-    }),
-
-    removeFavoriteProperty: build.mutation<
-      Tenant,
-      { cognitoId: string; propertyId: number }
-    >({
-      query: ({ cognitoId, propertyId }) => ({
-        url: `tenants/${cognitoId}/favorites/${propertyId}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: (result) => [
-        { type: "TENANTS", id: result?.id },
-        { type: "Properties", id: "LIST" },
-      ],
-    }),
-
-    createProperty: build.mutation<Property, FormData>({
-      query: (newProperty) => ({
-        url: `properties`,
-        method: "POST",
-        body: newProperty,
-      }),
-      invalidatesTags: (result) => [
-        { type: "Properties", id: "LIST" },
-        { type: "MANAGERS", id: result?.manager?.id },
-      ],
-    }),
-
-    createApplication: build.mutation<Application, Partial<Application>>({
-      query: (body) => ({
-        url: `applications`,
-        method: "POST",
-        body: body,
-      }),
-      invalidatesTags: ["Applications"],
-    }),
   }),
 });
 
-export const {
-  useGetAuthUserQuery,
-  useUpdateTenantSettingsMutation,
-  useUpdateManagerSettingsMutation,
-  useGetPropertyQuery,
-  useGetPropertiesQuery,
-  useGetTenantQuery,
-  useAddFavoritePropertyMutation,
-  useRemoveFavoritePropertyMutation,
-  useCreatePropertyMutation,
-  useCreateApplicationMutation,
-} = userApi;
+export const { useGetAuthUserQuery } = userApi;

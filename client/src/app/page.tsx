@@ -1,3 +1,9 @@
+import Landing from "./(nondashboard)/landing/page";
+
 export default function Home() {
-  return <div>home page</div>;
+  return (
+    <div>
+      <Landing />
+    </div>
+  );
 }
