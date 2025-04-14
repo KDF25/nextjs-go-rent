@@ -7,7 +7,7 @@
 ## 🚀 Tech Stack
 
 ### Frontend
-- **Framework**: Next.js 
+- **Framework**: Next.js  
 - **Styling**: Tailwind CSS  
 - **State Management**: Redux Toolkit  
 - **UI Components**: Shadcn UI + Custom Components  
@@ -16,9 +16,15 @@
 - **Framework**: Express.js  
 - **Database**: PostgreSQL (via Prisma ORM)  
 - **Cloud Services**: AWS S3 (file storage), AWS Cognito (authentication)  
-- **Geocoding**: OpenStreetMap API  
 
-### DevOps
-- **Frontend Hosting**: Vercel  
-- **Backend Hosting**: Node.js server  
-- **Environment Management**: dotenv  
+---
+
+## 🌐 Deployment
+
+- **Frontend**: Deployed on [Vercel](https://vercel.com) for fast and reliable hosting.  
+- **Backend**: Deployed on [Railway](https://railway.app) for scalable backend services.  
+- **Database**: Hosted on [Supabase](https://supabase.com), a modern PostgreSQL database platform.  
+
+---
+
+**Go Rent** – Simplifying property rentals, one click at a time.
