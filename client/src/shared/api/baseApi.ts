@@ -21,5 +21,7 @@ export const baseApi = createApi({
     "PropertyDetails",
     "Properties",
     "Applications",
+    "Leases",
+    "Payments",
   ],
 });

@@ -1,5 +1,5 @@
 import { baseApi } from "@shared/api";
-import { Manager } from "../types";
+import { Manager, Property } from "../types";
 
 export const managerApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -14,7 +14,21 @@ export const managerApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: (result) => [{ type: "MANAGERS", id: result?.id }],
     }),
+
+    getManagerProperties: build.query<Property[], string>({
+      query: (cognitoId) => `managers/${cognitoId}/properties`,
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Properties" as const, id })),
+              { type: "Properties", id: "LIST" },
+            ]
+          : [{ type: "Properties", id: "LIST" }],
+    }),
   }),
 });
 
-export const { useUpdateManagerSettingsMutation } = managerApi;
+export const {
+  useUpdateManagerSettingsMutation,
+  useGetManagerPropertiesQuery,
+} = managerApi;

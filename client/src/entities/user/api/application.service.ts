@@ -1,5 +1,5 @@
 import { baseApi } from "@shared/api";
-import { Application } from "../types";
+import { Application, Lease } from "../types";
 
 export const appApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -11,7 +11,41 @@ export const appApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["Applications"],
     }),
+
+    getApplications: build.query<
+      Application[],
+      { userId?: string; userType?: string }
+    >({
+      query: (params) => {
+        const queryParams = new URLSearchParams();
+        if (params.userId) {
+          queryParams.append("userId", params.userId.toString());
+        }
+        if (params.userType) {
+          queryParams.append("userType", params.userType);
+        }
+
+        return `applications?${queryParams.toString()}`;
+      },
+      providesTags: ["Applications"],
+    }),
+
+    updateApplicationStatus: build.mutation<
+      Application & { lease?: Lease },
+      { id: number; status: string }
+    >({
+      query: ({ id, status }) => ({
+        url: `applications/${id}/status`,
+        method: "PUT",
+        body: { status },
+      }),
+      invalidatesTags: ["Applications", "Leases"],
+    }),
   }),
 });
 
-export const { useCreateApplicationMutation } = appApi;
+export const {
+  useCreateApplicationMutation,
+  useGetApplicationsQuery,
+  useUpdateApplicationStatusMutation,
+} = appApi;

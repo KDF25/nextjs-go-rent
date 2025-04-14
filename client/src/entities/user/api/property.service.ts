@@ -52,6 +52,17 @@ export const propertyApi = baseApi.injectEndpoints({
         { type: "MANAGERS", id: result?.manager?.id },
       ],
     }),
+
+    getCurrentResidences: build.query<Property[], string>({
+      query: (cognitoId) => `tenants/${cognitoId}/current-residences`,
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Properties" as const, id })),
+              { type: "Properties", id: "LIST" },
+            ]
+          : [{ type: "Properties", id: "LIST" }],
+    }),
   }),
 });
 
@@ -59,4 +70,5 @@ export const {
   useGetPropertyQuery,
   useGetPropertiesQuery,
   useCreatePropertyMutation,
+  useGetCurrentResidencesQuery,
 } = propertyApi;
