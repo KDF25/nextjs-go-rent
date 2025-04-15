@@ -1,4 +1,5 @@
-import { Lease, Property } from "@entities/user";
+import { Lease } from "@entities/lease";
+import { Property } from "@entities/residence";
 import { Download, MapPin, User } from "lucide-react";
 import { FC } from "react";
 

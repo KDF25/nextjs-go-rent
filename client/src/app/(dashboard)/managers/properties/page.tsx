@@ -1,12 +1,11 @@
 "use client";
 
+import { Card } from "@entities/residence";
 import {
-  Card,
   useGetAuthUserQuery,
   useGetManagerPropertiesQuery,
 } from "@entities/user";
 import { Header, Loading } from "@shared/ui";
-import React from "react";
 
 export default function PropertiesPage() {
   const { data: authUser } = useGetAuthUserQuery();

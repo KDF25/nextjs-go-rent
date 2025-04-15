@@ -1,11 +1,7 @@
 "use client";
 
-import {
-  Card,
-  useGetAuthUserQuery,
-  useGetCurrentResidencesQuery,
-  useGetTenantQuery,
-} from "@entities/user";
+import { Card, useGetCurrentResidencesQuery } from "@entities/residence";
+import { useGetAuthUserQuery, useGetTenantQuery } from "@entities/user";
 import { Header, Loading } from "@shared/ui";
 
 export default function ResidencesPage() {

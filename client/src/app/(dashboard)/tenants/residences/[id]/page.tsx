@@ -1,16 +1,13 @@
 "use client";
 
+import { useGetLeasesQuery, useGetPaymentsQuery } from "@entities/lease";
 import {
   BillingHistory,
   PaymentMethod,
   ResidenceCard,
-} from "@entities/residence";
-import {
-  useGetAuthUserQuery,
-  useGetLeasesQuery,
-  useGetPaymentsQuery,
   useGetPropertyQuery,
-} from "@entities/user";
+} from "@entities/residence";
+import { useGetAuthUserQuery } from "@entities/user";
 import { Loading } from "@shared/ui";
 import { useParams } from "next/navigation";
 

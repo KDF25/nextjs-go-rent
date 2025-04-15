@@ -1,5 +1,5 @@
 export enum PATHS {
-  MAIN = "/layout",
+  MAIN = "/",
   SIGNIN = "/signin",
   SIGNOUT = "/signout",
   EXPLORE = "/explore",

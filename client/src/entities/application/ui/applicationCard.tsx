@@ -1,7 +1,8 @@
-import { Application, ROLES_APP } from "@entities/user";
+import { ROLES_APP } from "@entities/user";
 import { Mail, MapPin, PhoneCall } from "lucide-react";
 import Image from "next/image";
 import React, { FC, useState } from "react";
+import { Application } from "../types";
 
 interface ApplicationCardProps {
   application: Application;

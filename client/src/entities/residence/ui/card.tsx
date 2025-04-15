@@ -1,8 +1,8 @@
-import { CardProps } from "@entities/user";
 import { Bath, Bed, Heart, House, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useState } from "react";
+import { CardProps } from "../types";
 
 export const Card: FC<CardProps> = ({
   property,

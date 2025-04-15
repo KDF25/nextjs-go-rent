@@ -1,5 +1,6 @@
 import { baseApi } from "@shared/api";
-import { Manager, Property } from "../types";
+import { Manager } from "../types";
+import { Property } from "@entities/residence";
 
 export const managerApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

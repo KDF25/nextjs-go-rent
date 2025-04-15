@@ -3,8 +3,8 @@
 import {
   useGetPaymentsQuery,
   useGetPropertyLeasesQuery,
-  useGetPropertyQuery,
-} from "@entities/user";
+} from "@entities/lease";
+import { useGetPropertyQuery } from "@entities/residence";
 import {
   Header,
   Loading,

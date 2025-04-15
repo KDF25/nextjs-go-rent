@@ -1,4 +1,4 @@
-import { useGetPropertyQuery } from "@entities/user";
+import { useGetPropertyQuery } from "@entities/residence";
 import { Compass, MapPin } from "lucide-react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";

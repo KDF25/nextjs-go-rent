@@ -1,4 +1,4 @@
-import { Property } from "./property";
+import { Property } from "@entities/residence";
 
 export interface CardProps {
   property: Property;

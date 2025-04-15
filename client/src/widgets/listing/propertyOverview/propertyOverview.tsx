@@ -1,4 +1,4 @@
-import { useGetPropertyQuery } from "@entities/user";
+import { useGetPropertyQuery } from "@entities/residence";
 import { MapPin, Star } from "lucide-react";
 import { FC } from "react";
 

@@ -1,4 +1,4 @@
-import { useGetPropertyQuery } from "@entities/user";
+import { useGetPropertyQuery } from "@entities/residence";
 import {
   AmenityEnum,
   AmenityIcons,

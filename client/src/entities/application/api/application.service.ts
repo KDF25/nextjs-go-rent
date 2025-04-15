@@ -1,5 +1,6 @@
+import { Lease } from "@entities/lease";
 import { baseApi } from "@shared/api";
-import { Application, Lease } from "../types";
+import { Application } from "../types";
 
 export const appApi = baseApi.injectEndpoints({
   endpoints: (build) => ({

@@ -1,7 +1,5 @@
-import {
-  useCreateApplicationMutation,
-  useGetAuthUserQuery,
-} from "@entities/user";
+import { useCreateApplicationMutation } from "@entities/application";
+import { useGetAuthUserQuery } from "@entities/user";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ApplicationFormData, applicationSchema } from "@shared/lib";
 import {

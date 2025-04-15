@@ -2,10 +2,9 @@
 
 import {
   ApplicationCard,
-  ROLES_APP,
   useGetApplicationsQuery,
-  useGetAuthUserQuery,
-} from "@entities/user";
+} from "@entities/application";
+import { ROLES_APP, useGetAuthUserQuery } from "@entities/user";
 import { Header, Loading } from "@shared/ui";
 import { CircleCheckBig, Clock, Download, XCircle } from "lucide-react";
 

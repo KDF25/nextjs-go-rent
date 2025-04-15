@@ -2,13 +2,16 @@ import {
   Card,
   CardCompact,
   Property,
+  useGetPropertiesQuery,
+} from "@entities/residence";
+import {
   useAddFavoritePropertyMutation,
   useGetAuthUserQuery,
-  useGetPropertiesQuery,
   useGetTenantQuery,
   useRemoveFavoritePropertyMutation,
 } from "@entities/user";
 import { useAppSelector } from "@shared/store";
+import { Loading } from "@shared/ui";
 import { FC } from "react";
 
 export const Listings: FC = () => {
@@ -50,7 +53,7 @@ export const Listings: FC = () => {
     }
   };
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <Loading />;
   if (isError || !properties) return <div>Failed to fetch properties</div>;
 
   return (

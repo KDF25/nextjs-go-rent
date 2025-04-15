@@ -1,6 +1,6 @@
 "use client";
 
-import { Payment } from "@entities/user";
+import { Payment } from "@entities/lease";
 import {
   Table,
   TableBody,

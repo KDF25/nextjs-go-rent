@@ -1,15 +1,12 @@
 "use client";
 
-import { CustomFormField } from "@shared/ui";
-import { Header } from "@shared/ui";
-import { Form } from "@shared/ui";
+import { useCreatePropertyMutation } from "@entities/residence";
+import { useGetAuthUserQuery } from "@entities/user";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { Button } from "@shared/ui";
-import { PropertyFormData, propertySchema } from "@shared/lib";
-import { useCreatePropertyMutation, useGetAuthUserQuery } from "@entities/user";
 import { AmenityEnum, HighlightEnum, PropertyTypeEnum } from "@shared/config";
+import { PropertyFormData, propertySchema } from "@shared/lib";
+import { Button, CustomFormField, Form, Header } from "@shared/ui";
+import { useForm } from "react-hook-form";
 
 export default function NewPropertyPage() {
   const [createProperty] = useCreatePropertyMutation();

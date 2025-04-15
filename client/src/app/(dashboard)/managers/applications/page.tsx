@@ -2,11 +2,10 @@
 
 import {
   ApplicationCard,
-  ROLES_APP,
   useGetApplicationsQuery,
-  useGetAuthUserQuery,
   useUpdateApplicationStatusMutation,
-} from "@entities/user";
+} from "@entities/application";
+import { ROLES_APP, useGetAuthUserQuery } from "@entities/user";
 import {
   Header,
   Loading,

@@ -1,6 +1,6 @@
 "use client";
 
-import { Property, useGetPropertiesQuery } from "@entities/user";
+import { Property, useGetPropertiesQuery } from "@entities/residence";
 import { useAppSelector } from "@shared/store";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
