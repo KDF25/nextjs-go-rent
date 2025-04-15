@@ -3,6 +3,7 @@
 import { ROLES, useGetAuthUserQuery } from "@entities/user";
 import { PATHS } from "@shared/config";
 import "@shared/styles/globals.css";
+import { Loading } from "@shared/ui";
 import { Navbar } from "@widgets/navbar";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -27,7 +28,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     }
   }, [authUser, router, pathname]);
 
-  // if (authLoading || isLoading) return <>Loading...</>;
+  if (authLoading || isLoading) return <Loading/>;
   return (
     <div className="w-full h-full">
       <Navbar />

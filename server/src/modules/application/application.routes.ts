@@ -1,5 +1,5 @@
 export enum APPLICATION_ROUTES {
-    BASE = "/application",
+    BASE = "/applications",
     GET_APPLICATIONS = "/",
     UPDATE_APPLICATION = "/:id/status",
     CREATE_APPLICATION = "/",
